@@ -12,12 +12,56 @@ export class AppController {
 
   // -------- TESTING ---------
   @Get('workspaces')
-  getWorkspaces(): string[] {
-    return ['workspaces', 'workspaces1', 'workspaces2'];
+  getWorkspaces(): any[] {
+    return [{
+      id: 'workspaces',
+      name: 'workspaces',
+      description: 'workspaces',
+      label: 'workspaces',
+      value: 'workspaces',
+    },
+    {
+      id: 'workspaces1',
+      name: 'workspaces1',
+      description: 'workspaces1',
+      label: 'workspaces1',
+      value: 'workspaces1',
+    },
+    {
+      id: 'workspaces2',
+      name: 'workspaces2',
+      description: 'workspaces2',
+      label: 'workspaces2',
+      value: 'workspaces2',
+    }];
   }
 
+
+
   @Get('workspaces/:id/socialAccounts')
-  getSocialAccounts(@Body() body: any): string[] {
-    return ['socialAccounts', 'socialAccounts1', 'socialAccounts2'];
+  getSocialAccounts(@Body() body: any): any[] {
+
+    return [{
+      id: 'socialAccounts',
+      name: 'socialAccounts',
+      description: 'socialAccounts',
+      label: 'socialAccounts',
+      value: 'socialAccounts',
+    },
+    {
+      id: 'socialAccounts1',
+      name: 'socialAccounts1',
+      description: 'socialAccounts1',
+      label: 'socialAccounts1',
+      value: 'socialAccounts1',
+    },
+    {
+      id: 'socialAccounts2',
+      name: 'socialAccounts2',
+      description: 'socialAccounts2',
+      label: 'socialAccounts2',
+      value: 'socialAccounts2',
+    }]
+
   }
 }
