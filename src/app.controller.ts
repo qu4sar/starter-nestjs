@@ -1,4 +1,4 @@
-import { Body, Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Request } from '@nestjs/common'
 import { AppService } from './app.service';
 
 @Controller()
@@ -39,14 +39,15 @@ export class AppController {
 
 
   @Get('workspaces/:id/socialAccounts')
-  getSocialAccounts(@Body() body: any): any[] {
+  getSocialAccounts(@Request() req, @Body() body: any): any[] {
 
-    return [{
+    const testData = [{
       id: 'socialAccounts',
       name: 'socialAccounts',
       description: 'socialAccounts',
       label: 'socialAccounts',
       value: 'socialAccounts',
+      workspace: 'workspaces',
     },
     {
       id: 'socialAccounts1',
@@ -54,6 +55,7 @@ export class AppController {
       description: 'socialAccounts1',
       label: 'socialAccounts1',
       value: 'socialAccounts1',
+      workspace: 'workspaces1',
     },
     {
       id: 'socialAccounts2',
@@ -61,7 +63,9 @@ export class AppController {
       description: 'socialAccounts2',
       label: 'socialAccounts2',
       value: 'socialAccounts2',
+      workspace: 'workspaces2',
     }]
-
+    const workspaceId = req.params.id
+    return testData.filter((item) => item.workspace === workspaceId);
   }
 }
