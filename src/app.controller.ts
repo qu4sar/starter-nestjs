@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Request } from '@nestjs/common'
+import { Body, Controller, Get, Post, Request } from '@nestjs/common'
 import { AppService } from './app.service';
 
 @Controller()
@@ -35,6 +35,30 @@ export class AppController {
       value: 'workspaces2',
     }];
   }
+
+
+  @Post('posts/generate')
+  generatePost(@Body() body: any): any {
+    console.log('generate:body', body)
+    console.log('generate:body.data', body.data)
+    return {
+      status: 'success',
+      message: 'Post generated successfully',
+      data: body.data
+    }
+  }
+
+  @Post('posts/archive')
+  archivePost(@Body() body: any): any {
+    console.log('archive:body', body)
+    console.log('archive:body.data', body.data)
+    return {
+      status: 'success',
+      message: 'Post archived successfully',
+      data: body.data
+    }
+  }
+
 
 
 
